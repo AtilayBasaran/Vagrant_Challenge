@@ -5,6 +5,6 @@ def create_app(testing: bool = True):
 
     @app.route("/") 
     def index():
-        return "<p>Hello, World!</p>"
+        return f"Hello world<br> Testing: {testing}"
 
     return app
