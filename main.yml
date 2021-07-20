@@ -5,8 +5,8 @@
   tasks:
   - name: Copy your flask app file to the Vagrant servers
     copy:
-      src: /$PWD/app.py
-      dest: /home/vagrant/app.py
+      src: /$PWD/app.py.py
+      dest: /home/vagrant/app.py.py
   - name: installing pip3
     apt:
       name: python3-pip
@@ -19,3 +19,4 @@
   - name: run flask app
     shell: |
       nohup python3 app.py > log.txt 2>&1 &
+

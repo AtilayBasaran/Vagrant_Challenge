@@ -8,9 +8,9 @@ Vagrant.configure("2") do |config|
   #Provider settings
 config.vm.provider "virtualbox" do |vb|
 vb.memory = "512"
-vb.cpus = "1"
+    vb.cpus = "1"
 
-end
+  end
 
   #Network settings
 config.vm.network "forwarded_port", guest: 80, host: 1234
@@ -19,13 +19,13 @@ config.vm.network "private_network", ip: "192.168.33.10"
 #config.vm.network "public_network"
 config.vm.define "trusty" do |node|
   node.vm.hostname = "trusty.local"
-  node.vm.provision "ansible" do |ansible|
-    ansible.playbook = "main.yml"
+    node.vm.provision "ansible" do |ansible|
+      ansible.playbook = "main.yml"
   end
 end
 
   #Folder settings
-#config.vm.synced_folder "../data", "/vagrant_data"
+config.vm.synced_folder ".", "/var/www/html"
 
   #Provision settings
 config.vm.provision "shell", inline: <<-SHELL
